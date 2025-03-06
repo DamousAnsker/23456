@@ -6,7 +6,9 @@ export default function InicioMaquinas() {
   const [nombreEmpresa, setNombreEmpresa] = useState("");
   const [rutEmpresa, setRutEmpresa] = useState("");
   const [area, setArea] = useState("");
-  const [respuestas, setRespuestas] = useState([]);
+  const [respuestas, setRespuestas] = useState(new Map());
+  const [sugerencias, setSugerencias] = useState(new Map());  
+  const [file, setFile] = useState(null);
   const [seccionActual, setSeccionActual] = useState(0);
   const tokenUsuario = localStorage.getItem("token");
 
@@ -86,12 +88,27 @@ export default function InicioMaquinas() {
     });
   };
 
+  const handleSugerenciasChange = (e) => {
+    const { name, value } = e.target;
+    setSugerencias((prevSugerencias) => {
+      const updatedSugerencias = [...prevSugerencias];
+      const index = updatedSugerencias.findIndex((res) => res.pregunta === name);
+      if (index >= 0) {
+        updatedSugerencias[index].sugerencia = value;
+      } else {
+        updatedSugerencias.push({ pregunta: name, sugerencia: value });
+      }
+      return updatedSugerencias;
+    });
+  };
+
   const handleSiguiente = () => {
     const preguntasActuales = secciones[seccionActual].preguntas;
     const todasRespondidas = preguntasActuales.every(pregunta =>
       respuestas.some(res => res.pregunta === pregunta && res.respuesta)
     );
 
+    
     if (!todasRespondidas) {
       alert("Debe responder todas las preguntas antes de continuar.");
       return;
@@ -106,10 +123,10 @@ export default function InicioMaquinas() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!realizadoPor || !nombreEmpresa || !area || !maquinaEmpresa || respuestas.length === 0) {
-      alert("Por favor, complete todos los campos.");
+    if (!realizadoPor || !nombreEmpresa || !area || !maquinaEmpresa || respuestas.length === 0 || !file) {
+      alert("Por favor, complete todos los campos y seleccione un archivo.");
       return;
-    }
+    }    
 
     const formData = { realizadoPor, area, maquinaEmpresa, rutEmpresa, empresa: nombreEmpresa, respuestas };
 
@@ -132,6 +149,7 @@ export default function InicioMaquinas() {
         setArea("");
         setMaquinaEmpresa("");
         setRespuestas([]);
+        setSugerencias([]); // Limpiar sugerencias
       } else {
         alert("Error al enviar los datos");
       }
@@ -190,7 +208,14 @@ export default function InicioMaquinas() {
                   <input type="radio" value="no" name={pregunta} checked={respuestas.find(res => res.pregunta === pregunta)?.respuesta === "no"} onChange={handleRespuestasChange} /> No
                   <input type="radio" value="na" name={pregunta} checked={respuestas.find(res => res.pregunta === pregunta)?.respuesta === "na"} onChange={handleRespuestasChange} /> N/A
                 </div>
-                <input type="text" placeholder="Sugerencia" name={pregunta} checked={respuestas.find(res => res.pregunta === pregunta)?.respuesta === "sugerencia"} onChange={handleRespuestasChange} />
+                <input
+                  type="text"
+                  placeholder="Sugerencia"
+                  value={sugerencias.find(res => res.pregunta === pregunta)?.sugerencia || ""}
+                  onChange={handleSugerenciasChange}
+                  name={pregunta}
+                  className="form-control mt-2"
+                />
               </div>
             ))}
             <div className="d-flex justify-content-between mt-4">
