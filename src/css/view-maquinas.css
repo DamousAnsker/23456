@@ -1,0 +1,79 @@
+.modal {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+
+  /* Estilo para el overlay */
+.modal-overlay {
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  /* Estilo del modal */
+  .modal-popup {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 600px;
+    width: 90%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-50px);
+    opacity: 0;
+    animation: modalAppear 0.3s forwards;
+    max-height: 80vh; /* Máxima altura del modal */
+    overflow-y: auto;
+    z-index: 10000000000000000000000000000000000000000000000000000000000000000000000000000000;
+  }
+  
+  /* Animación de entrada del modal */
+  @keyframes modalAppear {
+    0% {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Estilo del botón de cerrar */
+  .modal-popup button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .modal-popup button:hover {
+    background-color: #0056b3;
+  }
+  

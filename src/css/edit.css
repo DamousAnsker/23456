@@ -1,0 +1,21 @@
+.navbar-charlas{
+    background-color: rgb(255, 255, 255)!important;
+    
+    color: rgb(0, 0, 0)!important;
+    
+    font-family: Arial, sans-serif!important;
+    
+    padding: 10px;
+    
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+
+}
+
+.form-card-st {
+    background-color: #f1ecec;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 8px;
+    box-shadow: 3px 3px 8px black;
+}
+
+

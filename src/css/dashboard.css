@@ -1,0 +1,51 @@
+/* Hace que el contenedor siempre ocupe toda la pantalla */
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Estiliza la caja blanca del gráfico */
+.dashboard-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+    position: relative;
+}
+
+/* Botón flotante en la parte superior derecha */
+.dashboard-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+.dashboard-button-2{
+    position: absolute;
+    top: 15px;
+    left: 15px;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    .dashboard-container {
+        padding: 10px;
+    }
+
+    .dashboard-card {
+        padding: 15px;
+        width: 100%;
+    }
+
+    .dashboard-button {
+        position: static; /* Quita la posición absoluta en pantallas pequeñas */
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}

@@ -1,0 +1,154 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+  }
+  
+  /* Contenedor principal del login */
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ocupa toda la altura de la pantalla */
+  }
+  
+  .login-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+    max-width: 600px; /* Limitamos el tamaño máximo del contenedor */
+  }
+  
+  .logo-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .logo {
+    width: 80%; /* Ajusta el tamaño de la imagen para que no sea demasiado grande */
+    margin-bottom: 20px;
+  }
+  
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .title-login {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+  
+  .labels-inicio {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .botones-login {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .button1 {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 50%; /* Ajusta el tamaño del botón */
+  }
+  
+  .button1:hover {
+    background-color: #0056b3;
+  }
+  
+    /* Responsividad para pantallas pequeñas */
+@media (max-width: 768px) {
+    .login-content {
+      width: 90%;
+      padding: 15px;
+    }
+  
+    .logo {
+      max-width: 80%; /* Ajusta la imagen en pantallas pequeñas */
+      height: auto;
+    }
+  }
+  
+  /* Responsividad para pantallas grandes (PC) */
+  @media (min-width: 768px) {
+    .logo {
+      max-width: 60%;  /* Hace que la imagen sea un poco más pequeña en pantallas grandes */
+      height: auto;
+    }
+  
+    .login-content {
+      width: 50%; /* Ajusta el contenido para pantallas más grandes */
+      padding: 30px;
+    }
+  }
+
+
+    
+    .logo {
+      width: 70%; /* La imagen se hace más pequeña en pantallas pequeñas */
+      margin-bottom: 15px;
+    }
+  
+    .title-login {
+      font-size: 28px; /* Ajustamos el tamaño del texto */
+    }
+  
+    .labels-inicio {
+      font-size: 16px;
+      padding: 8px;
+    }
+  
+    .button1 {
+      width: 80%; /* El botón ocupa un mayor porcentaje del ancho */
+    }
+  
+  @media (max-width: 480px) {
+    .login-content {
+      width: 95%;
+      padding: 10px;
+    }
+  
+    .logo {
+      width: 60%;
+      margin-bottom: 10px;
+    }
+  
+    .title-login {
+      font-size: 24px;
+    }
+  
+    .labels-inicio {
+      font-size: 14px;
+      padding: 6px;
+    }
+  
+    .button1 {
+      width: 90%;
+    }
+  }
+  
